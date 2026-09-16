@@ -25,3 +25,8 @@ reports/replay/
 reports/institutional/
 reports/provenance/
 reports/validation/
+
+# Local environment secrets; only deliberately sanitized examples may be shared.
+.env
+.env.*
+!.env.example

@@ -63,10 +63,12 @@ illustrative research output, not an unbiased backtest.
   data are still required.
 - **Numerical stability:** finite weights, feasibility, short samples, drawdown,
   downside deviation, and optimizer fallback visibility are improved. Max-
-  Sharpe estimator stability still needs research diagnostics.
+  Sharpe input and weight stability diagnostics are now available; historical
+  solver objective values remain unavailable.
 - **Architecture and performance:** common calendar logic and portfolio state
-  helpers reduce duplication; ML panel creation is vectorized. Configuration,
-  provenance, and typed result objects remain opportunities.
+  helpers reduce duplication; ML panel creation is vectorized. Shared settings
+  and historical/live manifests are implemented; typed result objects remain
+  an architectural opportunity.
 - **Tests, diagnostics, analytics:** a focused regression suite and first-level
   ranking/active/yearly diagnostics now exist. Exposure, capacity, attribution,
   and regime analytics remain necessary for an institutional-grade platform.
@@ -172,6 +174,10 @@ not regenerate an old ranking. Benchmark dates match portfolio realization
 dates and transaction costs remain separate. Historical replay calls the same
 runner with a truncated snapshot, making later observations inaccessible.
 
+Legacy reports can additionally load full-sample historical context and risk
+flags. Those panels are not as-of-safe evidence and do not feed rankings or
+portfolio weights; their limitation remains explicit in the methodology.
+
 These controls prevent prospective look-ahead through market rows, features,
 labels, benchmark observations, and portfolio returns. They do not fix or
 downgrade the critical historical survivorship limitation. Live outputs remain
@@ -224,7 +230,8 @@ settings and input/source/output hashes. Legacy live snapshots are frozen in
 memory and save metadata, not complete persisted price panels; exact replay
 requires preserved source inputs. Institutional acquisition does retain
 versioned raw and normalized panels. Source hashing works even without a
-project-local Git repository, as in the reviewed workspace.
+project-local Git repository, as in the earlier pre-publication review. The
+project now has its own repository; new manifests can also record its commit.
 
 The test suite now includes provenance coverage (69 passing tests). See
 [validation](docs/VALIDATION.md) for executed commands, numeric reproduction

@@ -3,12 +3,10 @@
 **A Python research platform for comparing equity signals, portfolio construction,
 and machine-learning rankings—with explicit timing, costs, and data limitations.**
 
-The research question: how do momentum, constrained optimization, and a
-walk-forward classifier behave when they select stocks under a common monthly
-protocol? Cross-sectional ranking connects a forecast to an allocation decision,
-so the project evaluates ranking quality alongside risk, concentration, turnover,
-and robustness. Outputs include portfolio returns, research figures, diagnostic
-tables, and frozen prospective paper recommendations.
+**Research question:** how do momentum, constrained optimization, and a
+walk-forward classifier behave under the same monthly portfolio protocol?
+I built the data-to-portfolio pipeline, evaluation and robustness tools, and
+prospective paper/replay workflow described below.
 
 > **Historical results are illustrative research output conditional on an ex-post
 > 20-stock universe—not an unbiased S&P 500 backtest.** Genuine historical
@@ -17,7 +15,41 @@ tables, and frozen prospective paper recommendations.
 > prices. Strong sample performance is not an investment-performance claim.
 
 [Research report](docs/RESEARCH_REPORT.md) · [Exact methodology](docs/METHODOLOGY.md) ·
-[Audit](AUDIT.md) · [Reproduction](docs/REPRODUCIBILITY.md) · [Validation](docs/VALIDATION.md)
+[Audit](AUDIT.md) · [Reproduction](docs/REPRODUCIBILITY.md) ·
+[Validation](docs/VALIDATION.md) · [Portfolio & interview guide](docs/PORTFOLIO.md)
+
+## Highlights
+
+- **Five comparable portfolios:** 3M/12–1 momentum, max-Sharpe/min-volatility
+  optimization, and gradient-boosted ML ranking.
+- **Available-label training:** expanding windows, strict target-date embargo,
+  and an explicit five-feature allow-list.
+- **Constrained allocation:** Top-5 selection, 40% optimizer caps, visible fallbacks.
+- **Trading-aware accounting:** drifted pre-trade weights and 10 bps one-way costs.
+- **Reproducibility:** deterministic replay, input/source hashes, frozen paper targets.
+- **69 regression/contract tests** covering timing, leakage, portfolios and providers.
+
+## Quick start
+
+From the repository root, using Python 3.11 (macOS/Linux):
+
+```bash
+python -m venv venv
+source venv/bin/activate
+python -m pip install -r requirements.txt
+export MPLBACKEND=Agg
+python -m pytest -q
+python comparison_main.py
+```
+
+`requirements.txt` is the unpinned dependency list. For the recorded environment,
+use `requirements-lock.txt` instead; it captures tested package versions but is
+not a portable, hash-verified lock. **A fresh install has not been validated.**
+The bundled inputs support offline runs after dependency installation.
+
+Start with `comparison_main.py` for the five-strategy table; then use
+`research_main.py` for figures and diagnostics. Robustness and live/replay are
+separate deeper workflows: see [full reproduction](docs/REPRODUCIBILITY.md).
 
 ## Research pipeline
 
@@ -52,7 +84,7 @@ Monthly, long-only portfolios; optimizer weights sum to one and are capped at
 fallbacks for insufficient/missing history or expected optimization failures.
 Costs are **10 bps × one-way turnover**, measured against drifted pre-trade
 weights; initial deployment has turnover one. **Same-close execution remains
-an explicit optimistic assumption.** Parameters were not tuned in this update.
+an explicit optimistic assumption.**
 
 ## ML methodology and research integrity
 
@@ -157,32 +189,15 @@ Current S&P scoring is separate from historical performance.
 
 **Research recommendation ≠ trade execution ≠ expected profit.**
 
-## Reproduce and test
+## Reproduction and deeper review
 
-Python 3.11; [setup, data requirements and full execution order](docs/REPRODUCIBILITY.md).
-The two frozen bundled input files support offline research. With the environment
-activated, run from the repository root:
-
-```bash
-export MPLBACKEND=Agg
-python -m pytest -q
-python comparison_main.py
-python research_main.py
-python robustness_main.py
-python robustness_phase2_main.py
-python live_main.py
-python live_replay_main.py --as-of 2024-12-31
-```
-
-**69 tests passed** in the validated environment. The suite covers timing,
-leakage, costs, caps, metrics, robustness, providers, replay, frozen-weight paper
-evaluation, and provenance. `main.py` and `ml_main.py` provide standalone
-baseline/ML reports. Live mode updates a research paper ledger by default.
-[Validation](docs/VALIDATION.md) records actual commands and warnings.
-
-Historical run manifests record frozen settings, input/source/output hashes,
-model parameters and environment versions. [The dependency snapshot](requirements-lock.txt)
-records the tested installation; a fresh installation was not tested.
+[Reproduction guide](docs/REPRODUCIBILITY.md) covers every entrypoint, frozen
+inputs, Phase 1 → Phase 2 dependencies, and prospective research. `main.py` and
+`ml_main.py` are standalone baseline/ML reports; `live_main.py` updates the
+research paper ledger by default. [Validation](docs/VALIDATION.md) records
+actual executions, warnings and unchanged CSV checks. Historical run manifests
+preserve settings, model parameters, environment versions and input/source/output
+hashes; preserve reports with their manifest when sharing a result.
 
 ## Project map
 

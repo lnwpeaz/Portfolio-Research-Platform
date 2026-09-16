@@ -1,6 +1,10 @@
 # Repository audit and implementation plan
 
-Inspection preceded presentation/code changes. Baseline: 66 tests passed in
+This records the earlier pre-publication inspection, before presentation/code
+changes. The project now has its own Git repository; the inventory below is
+historical context. For the final GitHub pass, see [validation](VALIDATION.md#github-hardening-pass).
+
+Baseline: 66 tests passed in
 53.59 seconds, with one joblib physical-core detection warning.
 
 ## Inventory

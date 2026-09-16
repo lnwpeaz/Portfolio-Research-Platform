@@ -1,5 +1,8 @@
 # Validation record
 
+The first sections retain the initial presentation validation. See the
+[GitHub hardening pass](#github-hardening-pass) for the latest review.
+
 Validated 2026-09-16 using the existing Python 3.11.4 environment on macOS,
 with `MPLBACKEND=Agg` and a writable temporary Matplotlib config directory.
 A fresh environment installation and external vendor downloads were not tested.
@@ -60,9 +63,11 @@ The raw command logs and machine-readable results are retained locally under
 - The shareable files total approximately **7 MB**, including the two bundled
   data inputs. No visible file exceeds 10 MB. Caches, virtual environments,
   repeated runs, paper state and validation logs are ignored.
-- No project-local Git repository exists in this workspace and no project files
-  were staged, committed or published. New historical manifests correctly
-  record a null Git commit and a deterministic source hash.
+- At that earlier validation, no project-local Git repository existed and no
+  project files were staged, committed or published by the task. The retained
+  example manifest therefore has a null Git commit and a source hash. The
+  project has since been initialized and published; new historical manifests
+  can record the project commit.
 
 ## Warnings and boundaries
 
@@ -84,3 +89,81 @@ periods; those are not as-of evidence and do not feed predictions or weights.
 Legacy live market panels are frozen in memory but not persisted in their run
 directories. These reporting/provenance boundaries are explicit in the
 [methodology](METHODOLOGY.md).
+
+
+## GitHub hardening pass
+
+This subsequent review began on a clean `main` checkout at `e8bfdb2`, with a
+project-local repository and the expected `lnwpeaz/Portfolio-Research-Platform`
+origin. Local tracking reported synchronization with `origin/main`; no remote
+fetch or GitHub rendering test was performed. No staging, commit or push was
+performed in this pass.
+
+The change is limited to README hierarchy/Quick Start, the portfolio interview
+guide, documentation consistency and environment-file ignore rules. Python
+source, parameters, dependencies, market inputs and research calculations were
+not changed. Existing charts, filenames and entrypoint architecture were retained.
+
+### Execution and reproducibility
+
+- The first unactivated `python -m pytest -q` used global Python and failed
+  collection with seven missing-`pypfopt` import errors. The existing project
+  environment resolved this; no dependencies were installed or changed.
+- Baseline after `source venv/bin/activate`: **69 passed**, one warning,
+  **51.74 seconds**.
+- Post-edit tests in that environment: **69 passed**, one warning,
+  **35.97 seconds**. The warning was joblib falling back to logical CPU counts.
+- `python comparison_main.py`: exit 0, **16.72 seconds**.
+- `python research_main.py`: exit 0, **22.74 seconds**.
+- All **93 pre-existing historical CSV files** matched their saved pre-edit
+  SHA-256 hashes, including **all 39 tracked CSV files**. Comparison/research
+  regenerated their outputs; robustness and ignored institutional CSVs were
+  checked for preservation, not regenerated in this documentation-only pass.
+- Logs, baseline hashes and machine-readable check results are retained locally
+  under ignored `reports/validation/github-hardening/`.
+
+Fresh installation remains untested. `requirements.txt` is an unpinned list;
+`requirements-lock.txt` captures the previously tested installation and is not a
+portable or hash-verified lock. The minimal first-run path is now prominent in
+README, with detailed execution order retained in the reproduction guide.
+
+### Presentation and hygiene
+
+All local Markdown links, fragments and README image paths were checked.
+Mermaid diagrams were retained with their existing simple flowchart syntax;
+this pass does not claim a remote GitHub rendering test. The five notebooks
+already carry prominent superseded notices and were retained as development
+history. Resume material now has one maintained home in `PORTFOLIO.md`.
+
+The initial 194 tracked files totalled 7,095,559 bytes. The largest was the
+intentional stock input at 2,397,460 bytes; no tracked file exceeded 10 MB.
+Tracked text searches found no matches for personal home-directory paths,
+the local user email marker, or uppercase credential markers. Additional common
+private-key, cloud/GitHub-key and credential-assignment patterns produced no
+suspected credentials. This is a working-tree scan, not a certification of the
+entire Git history. No ignored cache/live/institutional files are tracked.
+Environment secret files are now ignored, with a sanitized example exception.
+`git diff --check` passed; the final changes are seven modified documentation/
+ignore files plus the new portfolio guide, with no staged changes.
+
+### Deliberate boundaries
+
+No license was added because redistribution rights for bundled vendor data are
+not established in the repository. Citation metadata and a contribution guide
+were not added: this personal portfolio has no separate citation/release or
+contributor workflow requiring them. No author identity or affiliation was
+invented. The old example manifest remains intact as pre-Git provenance.
+
+The strict embargo, feature allow-list, signal/realization dates, Top-5 rules,
+252-price optimizer window, caps/fallbacks, drift-aware turnover, initial
+turnover and 10 bps cost convention agree with implementation. The existing
+methodology correctly distinguishes the generic equal-weight ML engine from
+the configurable momentum cap. The audit now repeats the limitation that
+legacy replay historical-context panels are not as-of-safe, although they do
+not feed rankings or target weights. No strategy behavior was changed to
+resolve documentation wording.
+
+All ex-post-universe, PIT/delisting, benchmark, vendor and same-close limitations
+remain prominently disclosed. The project is suitable for a resume, GitHub pin
+and LinkedIn Projects as quantitative research engineering and portfolio
+analytics; it does not establish unbiased alpha or production readiness.

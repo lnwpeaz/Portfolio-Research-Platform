@@ -1,5 +1,9 @@
 # Portfolio project delivery
 
+This records the initial presentation delivery. The subsequent GitHub pass is
+recorded in [validation](VALIDATION.md#github-hardening-pass); use the concise
+[portfolio guide](PORTFOLIO.md) for current resume and interview material.
+
 ## Important files changed
 
 | Files | Change |
@@ -30,7 +34,8 @@
 | Existing root report PNGs and institutional PNGs | Regenerated with research-limit labels; original historical CSV bytes unchanged |
 
 Dated provenance, live/replay, institutional validation runs and local logs
-were also generated, but are ignored for Git. No project files were committed.
+were also generated, but are ignored for Git. No commits were made during that
+initial presentation task; the project was subsequently initialized and published.
 
 ## Final architecture
 
@@ -104,14 +109,8 @@ analyses challenge the findings. Its central strength is transparent research
 engineering and reproducibility. Its high historical returns are not claimed
 as unbiased evidence of investment skill.
 
-## Resume bullet options
+## Resume and interview material
 
-- Built a Python equity research pipeline comparing five momentum, optimization
-  and ML portfolios with monthly walk-forward evaluation, constrained weights,
-  drift-aware turnover and explicit transaction costs.
-- Implemented label-availability embargoes, prospective cutoff snapshots,
-  deterministic replay and immutable paper recommendations, supported by a
-  69-test regression and contract suite.
-- Developed portfolio/ranking diagnostics, paired moving-block bootstrap and
-  cost/execution sensitivity analyses, with reproducible input/source manifests
-  and transparent survivorship and benchmark limitations.
+See [PORTFOLIO.md](PORTFOLIO.md) for three resume options, short and detailed
+interview explanations, and technical questions. This is the maintained version
+of the recruiter material previously listed here.

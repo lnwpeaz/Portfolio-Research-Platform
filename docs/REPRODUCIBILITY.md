@@ -7,6 +7,11 @@ historical workflows. A fresh installation was not exercised during this review.
 
 ## Environment setup
 
+For the shortest first run, follow the [README Quick Start](../README.md#quick-start).
+The setup below uses the recorded package snapshot for closer reproduction.
+Activate the project environment before running tests: an unrelated global
+Python can lack `pypfopt` even when the existing project `venv` is complete.
+
 ```bash
 python3.11 -m venv .venv
 source .venv/bin/activate
@@ -39,6 +44,11 @@ them now establishes file identity, not point-in-time vendor provenance. The
 input manifest's period describes observed rows, not a claimed acquisition date.
 
 ## Validated execution order
+
+For a first review, run **tests → comparison → research**. The comparison
+prints/saves the common-period table; research adds figures and diagnostics.
+The longer sequence below covers standalone reports, robustness and prospective
+workflows. Institutional/current-data commands are optional and separate.
 
 ```bash
 python -m pytest -q
@@ -81,9 +91,10 @@ can legitimately have no report hashes.
 Live and institutional manifests retain their existing conventions. Legacy
 live snapshots are in-memory copies; only metadata and derived reports are
 saved. Institutional acquisition separately versions raw and normalized data.
-The current workspace has no project-local Git repository, so source hashes
-provide identity and the new historical Git field is null. Nothing was staged,
-committed, or published by this update.
+The project now has its own Git repository. New historical manifests record
+its commit alongside source hashes, which also identify uncommitted Python
+changes. The retained example manifest predates Git initialization, so its null
+Git field is historical provenance, not a description of the current checkout.
 
 ## External-data operations
 
