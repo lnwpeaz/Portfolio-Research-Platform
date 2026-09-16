@@ -30,3 +30,7 @@ reports/validation/
 .env
 .env.*
 !.env.example
+
+# Detailed v1.1 diagnostic ledgers; retain compact summaries and figures.
+reports/execution_capacity/trades.csv
+reports/execution_capacity/periods.csv

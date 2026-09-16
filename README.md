@@ -27,7 +27,7 @@ prospective paper/replay workflow described below.
 - **Constrained allocation:** Top-5 selection, 40% optimizer caps, visible fallbacks.
 - **Trading-aware accounting:** drifted pre-trade weights and 10 bps one-way costs.
 - **Reproducibility:** deterministic replay, input/source hashes, frozen paper targets.
-- **69 regression/contract tests** covering timing, leakage, portfolios and providers.
+- **69 v1.0 regression/contract tests** covering timing, leakage, portfolios and providers.
 
 ## Quick start
 
@@ -188,6 +188,14 @@ files. Institutional acquisition additionally versions raw and normalized data.
 Current S&P scoring is separate from historical performance.
 
 **Research recommendation ≠ trade execution ≠ expected profit.**
+
+## v1.1 Execution & Capacity diagnostics
+
+A separate [execution/capacity extension](docs/EXECUTION_CAPACITY.md) measures
+AUM, ADV participation, hypothetical costs and next-session price sensitivity.
+Run `python execution_capacity_main.py` with an existing raw-close/volume cache;
+missing liquidity fails explicitly. Outputs live in `reports/execution_capacity/`.
+These are hypothetical diagnostics; official v1.0 results and limitations remain unchanged.
 
 ## Reproduction and deeper review
 
