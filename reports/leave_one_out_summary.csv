@@ -1,0 +1,4 @@
+strategy,baseline_sharpe,mean_leave_one_out_sharpe,std_leave_one_out_sharpe,minimum_leave_one_out_sharpe,maximum_leave_one_out_sharpe,worst_removed_ticker_by_sharpe,best_removed_ticker_by_sharpe,largest_annual_return_drop_ticker,largest_information_ratio_drop_ticker
+momentum_3m_equal,1.3380714175106458,1.3151554230895803,0.04408192831606249,1.2153970818046316,1.4145488535031543,NVDA,AMZN,TSLA,TSLA
+momentum_12_1_equal,1.2092839937585151,1.1769748660822672,0.06064659006135253,0.9876585148847612,1.2530704492597677,NVDA,HD,NVDA,NVDA
+ml,1.2909004212855009,1.4150985567299907,0.15305649997133355,0.94200711829599,1.6375012470231334,NVDA,KO,NVDA,NVDA

@@ -1,0 +1,27 @@
+# Local environments and caches
+venv/
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+.DS_Store
+.mplconfig/
+*.log
+
+# Keep only the two small frozen reproduction inputs.
+*.parquet
+!data/raw/us_stock.parquet
+!data/raw/benchmark.parquet
+data/cache/
+data/institutional/
+data/universe/*.csv
+data/universe/*.json
+
+# Mutable or repeated run artifacts; representative root CSV/PNG reports remain visible.
+paper/
+reports/live/
+reports/replay/
+reports/institutional/
+reports/provenance/
+reports/validation/

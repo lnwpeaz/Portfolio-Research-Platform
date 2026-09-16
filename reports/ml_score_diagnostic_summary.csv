@@ -1,0 +1,5 @@
+dispersion_measure,correlation_with_top_n_spread,correlation_with_rank_ic
+score_std,0.0863116792320293,0.014426772200485587
+score_range,0.10622021694980371,0.05853270883581381
+top_1_minus_median_score,0.1912628464363079,0.12389942426466387
+top_5_average_minus_universe_average,0.17346414988938733,0.04280769449021638

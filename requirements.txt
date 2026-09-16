@@ -1,0 +1,12 @@
+pandas
+numpy
+matplotlib
+plotly
+yfinance
+scikit-learn
+scipy
+PyPortfolioOpt
+pyarrow
+jupyter
+tqdm
+pytest

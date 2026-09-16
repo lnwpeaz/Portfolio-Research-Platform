@@ -1,0 +1,3 @@
+strategy,valid_estimator_periods,median_covariance_condition_number,p95_covariance_condition_number,fraction_condition_number_above_1e3,fraction_condition_number_above_1e4,fraction_condition_number_above_1e5,fallback_rate
+momentum_max_sharpe,120,18.334755282992546,54.15349679776647,0.0,0.0,0.0,0.078125
+momentum_min_vol,120,18.334755282992546,54.15349679776647,0.0,0.0,0.0,0.0625

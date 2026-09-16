@@ -1,0 +1,38 @@
+{
+  "description": "Frozen legacy Yahoo-style adjusted stock and ^GSPC price benchmark inputs. Acquisition timestamp unavailable; not PIT data.",
+  "date_start": "2015-01-02 00:00:00",
+  "date_end": "2025-12-31 00:00:00",
+  "daily_rows": 2766,
+  "tickers": [
+    "AAPL",
+    "ABBV",
+    "AMZN",
+    "COST",
+    "CVX",
+    "GOOGL",
+    "HD",
+    "JPM",
+    "KO",
+    "MA",
+    "META",
+    "MSFT",
+    "NVDA",
+    "PEP",
+    "PG",
+    "TSLA",
+    "UNH",
+    "V",
+    "WMT",
+    "XOM"
+  ],
+  "files": {
+    "data/raw/benchmark.parquet": {
+      "bytes": 126436,
+      "sha256": "c660c7dcdd0db35fdd7471954251fcd190903d9d94eb8c1a123b1b0849cd58e5"
+    },
+    "data/raw/us_stock.parquet": {
+      "bytes": 2397460,
+      "sha256": "39be9fcf2426b9b2a1becbd6b0d8b1d5e35e529142a81048727a025445bd69a4"
+    }
+  }
+}

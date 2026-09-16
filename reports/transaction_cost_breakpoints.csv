@@ -1,0 +1,6 @@
+strategy,first_cost_bps_active_return_nonpositive,first_cost_bps_sharpe_at_or_below_benchmark
+momentum_3m_equal,not_reached,not_reached
+momentum_12_1_equal,not_reached,not_reached
+momentum_max_sharpe,not_reached,not_reached
+momentum_min_vol,not_reached,not_reached
+ml,not_reached,not_reached
