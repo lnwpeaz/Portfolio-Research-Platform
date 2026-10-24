@@ -69,6 +69,18 @@ universe is ex post, delistings are missing, and the price benchmark excludes
 dividends. The project demonstrates research engineering; it does not establish
 unbiased investment performance.”
 
+## Additional ML experiment talking point
+
+Compared four predeclared regularization variants with the baseline, selected
+on 2021–2022 net Sharpe, and froze the model before retrospective 2023–2025
+evaluation. The selected depth-3/L2-10 configuration increased net Sharpe from
+1.861 to 1.996 and reduced maximum drawdown magnitude from 13.29% to 10.57%
+in the same ex-post 20-stock sample. Annual alpha increased from 9.71% to 11.23%
+and volatility decreased from 17.09% to 16.22%. These are cash-reset 36-month
+segment results, not the original full-period results or an unseen holdout.
+All candidates, including better evaluation performers that were not selected
+by validation, remain visible in the [study report](../reports/ml_regularization/study_v1/report.md).
+
 ## Five likely technical questions
 
 1. **Why is `feature_date < prediction_date` insufficient?** A feature row's

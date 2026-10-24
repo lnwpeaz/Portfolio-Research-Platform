@@ -1,0 +1,45 @@
+{
+  "selected_candidate": "depth3_l2_10",
+  "selected_parameters": {
+    "categorical_features": "from_dtype",
+    "class_weight": null,
+    "early_stopping": "auto",
+    "interaction_cst": null,
+    "l2_regularization": 10.0,
+    "learning_rate": 0.05,
+    "loss": "log_loss",
+    "max_bins": 255,
+    "max_depth": 3,
+    "max_features": 1.0,
+    "max_iter": 200,
+    "max_leaf_nodes": 31,
+    "min_samples_leaf": 20,
+    "monotonic_cst": null,
+    "n_iter_no_change": 10,
+    "random_state": 42,
+    "scoring": "loss",
+    "tol": 1e-07,
+    "validation_fraction": 0.1,
+    "verbose": 0,
+    "warm_start": false
+  },
+  "validation_start": "2021-01-01",
+  "validation_end": "2022-12-31",
+  "validation_net_sharpe": {
+    "baseline": 0.6909787820427103,
+    "depth2_l2_1": 0.6479091341370781,
+    "depth2_l2_10": 0.41500847956424336,
+    "depth3_l2_1": 0.745569597713913,
+    "depth3_l2_10": 0.8531421297731133
+  },
+  "validation_returns_sha256": "efc62970fcbbdad1597d289c5ce928e2db02e23836688b62d79d0de9da6bc01f",
+  "config_sha256": "ba4e313444752f27ca1bb046e63cd0f7e8e29eab3ffde507f3500635fd69bc37",
+  "tie_break_order": [
+    "baseline",
+    "depth2_l2_1",
+    "depth2_l2_10",
+    "depth3_l2_1",
+    "depth3_l2_10"
+  ],
+  "unseen_holdout": false
+}

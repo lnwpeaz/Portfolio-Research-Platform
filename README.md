@@ -197,6 +197,33 @@ Run `python execution_capacity_main.py` with an existing raw-close/volume cache;
 missing liquidity fails explicitly. Outputs live in `reports/execution_capacity/`.
 These are hypothetical diagnostics; official v1.0 results and limitations remain unchanged.
 
+## ML regularization experiment
+
+A separate chronological study compares four predeclared depth/L2 variants
+with the original ML baseline. Selection uses net Sharpe on **2021–2022**;
+the chosen configuration is frozen before evaluating **2023–2025**. Features,
+Top-5 equal weights and the official cost convention are retained.
+
+| 2023–2025 retrospective evaluation | Baseline | Validation-selected depth 3, L2 = 10 |
+|---|---:|---:|
+| Annual alpha (single-benchmark, zero risk-free rate) | 9.71% | 11.23% |
+| Net Sharpe | 1.861 | 1.996 |
+| Annual volatility | 17.09% | 16.22% |
+| Maximum drawdown | −13.29% | −10.57% |
+
+Both portfolios restart in cash for this 36-month comparison. **These are not
+the continuous 2018–2025 results above.** The evaluation history was already
+inspected; this is not an unseen holdout. The ex-post universe and benchmark
+limitations still apply. Every candidate is reported without evaluation-based
+reselection, and the original default ML remains reproducible.
+
+Run `python ml_experiment_main.py`; each run writes a new directory under
+`reports/ml_regularization/`. Existing run directories cannot be overwritten.
+
+[Experiment protocol](docs/ML_REGULARIZATION.md) ·
+[Results and reproduction](docs/ML_EXPERIMENT_RESULTS.md) ·
+[Full retained report](reports/ml_regularization/study_v1/report.md)
+
 ## Reproduction and deeper review
 
 [Reproduction guide](docs/REPRODUCIBILITY.md) covers every entrypoint, frozen

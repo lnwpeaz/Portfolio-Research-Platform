@@ -8,6 +8,10 @@ from src.models.ml_ranker import (
 def generate_walk_forward_scores(
     dataset: pd.DataFrame,
     minimum_train_months: int = 36,
+    *,
+    model_parameters: dict | None = None,
+    prediction_start=None,
+    prediction_end=None,
 ) -> pd.DataFrame:
     """
     Expanding-window walk-forward ML.
@@ -15,6 +19,10 @@ def generate_walk_forward_scores(
     At prediction cutoff t, train only on non-null labels with target_date < t.
     A label ending exactly at t is embargoed even though its feature date is
     earlier. Count the minimum window using available labeled feature months.
+
+    Optional prediction bounds limit scoring, never the preceding training
+    history. Optional model parameters support a separate frozen experiment;
+    omitted parameters preserve the official baseline.
     """
 
     required = {
@@ -29,6 +37,11 @@ def generate_walk_forward_scores(
     if minimum_train_months < 1:
         raise ValueError("minimum_train_months must be positive.")
 
+    start = pd.Timestamp(prediction_start) if prediction_start is not None else None
+    end = pd.Timestamp(prediction_end) if prediction_end is not None else None
+    if start is not None and end is not None and start > end:
+        raise ValueError("prediction_start must not follow prediction_end.")
+
     dates = (
         dataset["date"]
         .drop_duplicates()
@@ -39,6 +52,11 @@ def generate_walk_forward_scores(
     results = []
 
     for prediction_date in dates:
+
+        if (start is not None and prediction_date < start) or (
+            end is not None and prediction_date > end
+        ):
+            continue
 
         train_data = (
             dataset[
@@ -73,7 +91,7 @@ def generate_walk_forward_scores(
         ):
             continue
 
-        model = MLStockRanker()
+        model = MLStockRanker(**(model_parameters or {}))
 
         model.fit(
             train_data

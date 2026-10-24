@@ -4,6 +4,7 @@ matplotlib
 plotly
 yfinance
 scikit-learn
+threadpoolctl
 scipy
 PyPortfolioOpt
 pyarrow

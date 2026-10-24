@@ -21,6 +21,7 @@ class MLStockRanker:
         learning_rate: float = 0.05,
         max_depth: int = 3,
         random_state: int = 42,
+        l2_regularization: float = 0.0,
     ):
         self.model = (
             HistGradientBoostingClassifier(
@@ -28,6 +29,7 @@ class MLStockRanker:
                 learning_rate=learning_rate,
                 max_depth=max_depth,
                 random_state=random_state,
+                l2_regularization=l2_regularization,
             )
         )
 

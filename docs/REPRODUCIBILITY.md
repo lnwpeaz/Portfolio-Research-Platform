@@ -96,6 +96,31 @@ its commit alongside source hashes, which also identify uncommitted Python
 changes. The retained example manifest predates Git initialization, so its null
 Git field is historical provenance, not a description of the current checkout.
 
+## Frozen ML regularization study
+
+```bash
+export MPLBACKEND=Agg
+python ml_experiment_main.py
+```
+
+The CLI limits numerical thread pools to one to avoid oversubscription on these
+small panels. It uses the bundled offline inputs and creates a unique output
+directory. `--output-dir /absolute/path/to/new-run` selects a new destination;
+an existing directory fails instead of overwriting a frozen selection.
+
+The [protocol](ML_REGULARIZATION.md) fixes four candidates plus the original
+baseline and uses realization dates in 2021–2022 for net-Sharpe selection.
+`selection.json` is written before evaluation predictions are produced.
+Hyperparameters remain fixed during expanding-window 2023–2025 refits.
+That period was previously inspected, so the evaluation is retrospective.
+See [results and interpretation](ML_EXPERIMENT_RESULTS.md).
+
+CSV summaries, returns, scores and portfolio ledgers should reproduce with the
+same data/code/environment. The manifest includes frame hashes, source hashes,
+package/Python versions and output hashes. Run IDs and timestamps differ.
+Each segment restarts from cash, including its initial transaction cost;
+do not compare these segments to the official continuous-history figures.
+
 ## External-data operations
 
 The [operations reference](OPERATIONS.md) retains institutional acquisition,

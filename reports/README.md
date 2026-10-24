@@ -15,6 +15,7 @@ unbiased historical S&P 500 performance.
 | `live_main.py` | `live/<run_id>/`: manifest, features, predictions, targets, consensus, flags, research report; `live/latest.json` pointer |
 | `live_replay_main.py` | `replay/<replay_id>/runs/`, replay summary, isolated paper state for date ranges |
 | Institutional CLIs | `institutional/`: acquisition coverage/actions, current scoring, sector/quantile/Top-N diagnostics and dated run directories |
+| `ml_experiment_main.py` | `ml_regularization/<run>/`: frozen protocol/config/selection, every candidate's validation/evaluation metrics, scores, targets, returns, chart and hashed manifest |
 
 Root report filenames are mutable on rerun. Immutable provenance manifests do
 not archive the old report bytes; retain both when sharing an experiment.
@@ -32,3 +33,8 @@ Start with the [README figures](../README.md#key-research-outputs), then the
 stability uses its available strategy history; concentration summaries in the
 common-period report use the shared 88 months. Do not compare them as if their
 sample lengths were identical.
+
+The [ML study](ml_regularization/study_v1/report.md) is a separate cash-reset
+2021–2022 validation / 2023–2025 retrospective evaluation. Its segment results
+are not replacements for the official continuous-history table. The retained
+`study_v1` includes full CSV evidence; preserve each run with its manifest.
